@@ -78,7 +78,7 @@ if [ "$?" == "0" ]; then
                               echo
                               echo "                SearX has been successfully installed."
                               echo
-                              echo "      For a one-time start, you may open the script 'start searx.command'."
+                              echo "          For a one-time start, you may open the script 'start searx'."
                               echo "      Anyway, SearX will be activated automatically on restart of the Mac."
                            else
                               echo
