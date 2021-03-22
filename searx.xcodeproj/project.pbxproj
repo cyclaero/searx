@@ -656,34 +656,44 @@
 		7E47AA6925FE97D8001D272B /* webapp.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = webapp.py; sourceTree = "<group>"; };
 		7E47AA6A25FE97D8001D272B /* webutils.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = webutils.py; sourceTree = "<group>"; };
 		7E47AA6B25FE9878001D272B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		7E51ACC9260825F80073F382 /* create-searx-service.bat */ = {isa = PBXFileReference; lastKnownFileType = text; path = "create-searx-service.bat"; sourceTree = "<group>"; };
+		7E51ACCA260825F80073F382 /* install-searx.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = "install-searx.py"; sourceTree = "<group>"; };
+		7E51ACCB260825F80073F382 /* searx-settings.patch */ = {isa = PBXFileReference; lastKnownFileType = text; path = "searx-settings.patch"; sourceTree = "<group>"; };
+		7E739DCC2608255F00D673F2 /* install searx */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "install searx"; sourceTree = "<group>"; };
+		7E739DCD2608255F00D673F2 /* searx-settings.patch */ = {isa = PBXFileReference; lastKnownFileType = text; path = "searx-settings.patch"; sourceTree = "<group>"; };
+		7E739DCE2608255F00D673F2 /* searx.in */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = searx.in; sourceTree = "<group>"; };
+		7E739DCF2608255F00D673F2 /* start searx */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "start searx"; sourceTree = "<group>"; };
+		7E739DD02608255F00D673F2 /* stop searx */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "stop searx"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		7E47A72025FE9780001D272B = {
 			isa = PBXGroup;
 			children = (
-				7E47A72725FE97D6001D272B /* AUTHORS.rst */,
-				7E47A78025FE97D6001D272B /* babel.cfg */,
-				7E47A78125FE97D6001D272B /* CHANGELOG.rst */,
-				7E47A72A25FE97D6001D272B /* CONTRIBUTING.md */,
-				7E47A72925FE97D6001D272B /* Dockerfile */,
-				7E47A7DF25FE97D7001D272B /* dockerfiles */,
-				7E47A78825FE97D7001D272B /* docs */,
-				7E47A78525FE97D7001D272B /* examples */,
-				7E47A7DE25FE97D7001D272B /* LICENSE */,
-				7E47A74F25FE97D6001D272B /* Makefile */,
-				7E47A72825FE97D6001D272B /* manage.sh */,
-				7E47A75025FE97D6001D272B /* PULL_REQUEST_TEMPLATE.md */,
-				7E47A78225FE97D6001D272B /* README.rst */,
-				7E47A74E25FE97D6001D272B /* requirements-dev.txt */,
-				7E47A78725FE97D7001D272B /* requirements.txt */,
 				7E47A7E225FE97D7001D272B /* searx */,
-				7E47A7D025FE97D7001D272B /* searx_extra */,
+				7E47A78525FE97D7001D272B /* examples */,
 				7E47A78325FE97D6001D272B /* setup.py */,
-				7E47A72E25FE97D6001D272B /* tests */,
-				7E47A78425FE97D7001D272B /* tox.ini */,
-				7E47A75125FE97D6001D272B /* utils */,
 				7E47AA6B25FE9878001D272B /* .gitignore */,
+				7E47A78825FE97D7001D272B /* docs */,
+				7E47A7D025FE97D7001D272B /* searx_extra */,
+				7E47A7DE25FE97D7001D272B /* LICENSE */,
+				7E47A78225FE97D6001D272B /* README.rst */,
+				7E47A78125FE97D6001D272B /* CHANGELOG.rst */,
+				7E47A72725FE97D6001D272B /* AUTHORS.rst */,
+				7E47A72A25FE97D6001D272B /* CONTRIBUTING.md */,
+				7E47A75025FE97D6001D272B /* PULL_REQUEST_TEMPLATE.md */,
+				7E47A74F25FE97D6001D272B /* Makefile */,
+				7E47A78025FE97D6001D272B /* babel.cfg */,
+				7E47A78425FE97D7001D272B /* tox.ini */,
+				7E47A72825FE97D6001D272B /* manage.sh */,
+				7E47A72925FE97D6001D272B /* Dockerfile */,
+				7E47A78725FE97D7001D272B /* requirements.txt */,
+				7E47A74E25FE97D6001D272B /* requirements-dev.txt */,
+				7E47A7DF25FE97D7001D272B /* dockerfiles */,
+				7E47A72E25FE97D6001D272B /* tests */,
+				7E47A75125FE97D6001D272B /* utils */,
+				7E739DCB2608255F00D673F2 /* SearX for macOS */,
+				7E51ACC8260825F80073F382 /* SearX for Windows */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2792,6 +2802,28 @@
 				7E47AA6525FE97D8001D272B /* messages.po */,
 			);
 			path = LC_MESSAGES;
+			sourceTree = "<group>";
+		};
+		7E51ACC8260825F80073F382 /* SearX for Windows */ = {
+			isa = PBXGroup;
+			children = (
+				7E51ACCA260825F80073F382 /* install-searx.py */,
+				7E51ACC9260825F80073F382 /* create-searx-service.bat */,
+				7E51ACCB260825F80073F382 /* searx-settings.patch */,
+			);
+			path = "SearX for Windows";
+			sourceTree = "<group>";
+		};
+		7E739DCB2608255F00D673F2 /* SearX for macOS */ = {
+			isa = PBXGroup;
+			children = (
+				7E739DCC2608255F00D673F2 /* install searx */,
+				7E739DCF2608255F00D673F2 /* start searx */,
+				7E739DD02608255F00D673F2 /* stop searx */,
+				7E739DCD2608255F00D673F2 /* searx-settings.patch */,
+				7E739DCE2608255F00D673F2 /* searx.in */,
+			);
+			path = "SearX for macOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

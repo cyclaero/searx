@@ -1,0 +1,513 @@
+--- settings.yml	2021-03-17 00:01:25.000000000 -0300
++++ searx-settings.yml	2021-03-17 00:01:19.000000000 -0300
+@@ -1,6 +1,6 @@
+ general:
+     debug : False # Debug mode, only for development
+-    instance_name : "searx" # displayed name
++    instance_name : "searX" # displayed name
+     contact_url: False # mailto:contact@example.com
+ 
+ brand:
+@@ -22,10 +22,10 @@
+ server:
+     port : 8888
+     bind_address : "127.0.0.1" # address to listen on
+-    secret_key : "ultrasecretkey" # change this!
++    secret_key : "Ody8okKB0Q5CF4HZqw3pfTOwUQCX8ZRg0pwxlSxIyys=" # change this!
+     base_url : False # Set custom base_url. Possible values: False or "https://your.custom.host/location/"
+     image_proxy : False # Proxying image results through searx
+-    http_protocol_version : "1.0"  # 1.0 and 1.1 are supported
++    http_protocol_version : "1.1"  # 1.0 and 1.1 are supported
+     method: "POST" # POST queries are more secure as they don't show up in history but may cause problems when using Firefox containers
+     default_http_headers:
+         X-Content-Type-Options : nosniff
+@@ -41,7 +41,7 @@
+     default_locale : "" # Default interface locale - leave blank to detect from browser information or use codes from the 'locales' config section
+     theme_args :
+         oscar_style : logicodev # default style of oscar
+-#   results_on_new_tab: False  # Open result links in a new tab by default
++    results_on_new_tab: True  # Open result links in a new tab by default
+ #   categories_order :
+ #     - general
+ #     - files
+@@ -67,7 +67,7 @@
+ #    key : !!binary "your_morty_proxy_key"
+ 
+ outgoing: # communication with search engines
+-    request_timeout : 2.0 # default timeout in seconds, can be override by engine
++    request_timeout : 5.0 # default timeout in seconds, can be override by engine
+     # max_request_timeout: 10.0 # the maximum timeout in seconds
+     useragent_suffix : "" # suffix of searx_useragent, could contain informations like an email address to the administrator
+     pool_connections : 100 # Number of different hosts
+@@ -100,9 +100,14 @@
+ 
+ # uncomment below section if you want to configure which plugin is enabled by default
+ #
+-# enabled_plugins:
+-#   - "HTTPS rewrite"
+-#   - ...
++enabled_plugins:
++    - "Open Access DOI rewrite"
++    - "Hash plugin"
++    - "HTTPS rewrite"
++    - "Infinite scroll"
++    - "Self Informations"
++    - "Search on category select"
++    - "Tracker URL remover"
+ 
+ checker:
+     # disable checker when in debug mode
+@@ -153,7 +158,6 @@
+ engines:
+   - name: apk mirror
+     engine: apkmirror
+-    timeout: 4.0
+     shortcut: apkm
+     disabled: True
+ 
+@@ -163,10 +167,12 @@
+     categories : onions
+     enable_http : True
+     shortcut : ah
++    disabled : True
+ 
+   - name : arch linux wiki
+     engine : archlinux
+     shortcut : al
++    disabled : True
+ 
+   - name : archive is
+     engine : xpath
+@@ -190,7 +196,6 @@
+     engine : arxiv
+     shortcut : arx
+     categories : science
+-    timeout : 4.0
+ 
+ #  tmp suspended:  dh key too small
+ #  - name : base
+@@ -205,18 +210,22 @@
+   - name : bing
+     engine : bing
+     shortcut : bi
++    disabled : True
+ 
+   - name : bing images
+     engine : bing_images
+     shortcut : bii
++    disabled : True
+ 
+   - name : bing news
+     engine : bing_news
+     shortcut : bin
++    disabled : True
+ 
+   - name : bing videos
+     engine : bing_videos
+     shortcut : biv
++    disabled : True
+ 
+   - name : bitbucket
+     engine : xpath
+@@ -226,7 +235,6 @@
+     title_xpath : //article[@class="repo-summary"]//a[@class="repo-link"]
+     content_xpath : //article[@class="repo-summary"]/p
+     categories : it
+-    timeout : 4.0
+     disabled : True
+     shortcut : bb
+     about:
+@@ -240,6 +248,7 @@
+   - name : btdigg
+     engine : btdigg
+     shortcut : bt
++    disabled : True
+ 
+   - name : ccc-tv
+     engine : xpath
+@@ -291,18 +300,17 @@
+   - name : deezer
+     engine : deezer
+     shortcut : dz
++    disabled : True
+ 
+   - name : deviantart
+     engine : deviantart
+     shortcut : da
+-    timeout : 3.0
++    disabled : True
+ 
+   - name : ddg definitions
+     engine : duckduckgo_definitions
+     shortcut : ddd
+     weight : 2
+-    disabled : True
+-    tests: *tests_infobox
+ 
+ # cloudflare protected
+ #  - name : digbt
+@@ -314,6 +322,7 @@
+   - name : digg
+     engine : digg
+     shortcut : dg
++    disabled : True
+ 
+   - name : erowid
+     engine : xpath
+@@ -352,27 +361,20 @@
+   - name : wikidata
+     engine : wikidata
+     shortcut : wd
+-    timeout : 3.0
+     weight : 2
+-    tests: *tests_infobox
+ 
+   - name : duckduckgo
+     engine : duckduckgo
+     shortcut : ddg
+-    disabled : True
+ 
+   - name : duckduckgo images
+     engine : duckduckgo_images
+     shortcut : ddi
+-    timeout: 3.0
+-    disabled : True
+ 
+   - name : etools
+     engine : etools
+     shortcut : eto
+     disabled : True
+-    additional_tests:
+-      rosebud: *test_rosebud
+ 
+   - name : etymonline
+     engine : xpath
+@@ -383,7 +385,6 @@
+     content_xpath : //section[contains(@class, "word__defination")]
+     first_page_num : 1
+     shortcut : et
+-    disabled : True
+     about:
+       website: https://www.etymonline.com/
+       wikidata_id: Q1188617
+@@ -401,7 +402,6 @@
+   - name : 1x
+     engine : www1x
+     shortcut : 1x
+-    timeout : 3.0
+     disabled : True
+ 
+   - name : fdroid
+@@ -428,7 +428,6 @@
+ # what part of a page matches the query string: title, text, nearmatch
+ # title - query matches title, text - query matches the text of page, nearmatch - nearmatch in title
+     search_type : title
+-    timeout : 5.0
+     disabled : True
+     about:
+       website: https://directory.fsf.org/
+@@ -450,18 +449,17 @@
+   - name : genius
+     engine : genius
+     shortcut : gen
++    disabled : True
+ 
+   - name : gigablast
+     engine : gigablast
+     shortcut : gb
+-    timeout : 3.0
+     disabled: True
+-    additional_tests:
+-      rosebud: *test_rosebud
+ 
+   - name : gentoo
+     engine : gentoo
+     shortcut : ge
++    disabled : True
+ 
+   - name : gitlab
+     engine : json_engine
+@@ -486,6 +484,7 @@
+   - name : github
+     engine : github
+     shortcut : gh
++    disabled : True
+ 
+     # This a Gitea service. If you would like to use a different instance,
+     # change codeberg.org to URL of the desired Gitea host. Or you can create
+@@ -510,32 +509,18 @@
+   - name : google
+     engine : google
+     shortcut : go
+-    # additional_tests:
+-    #   android: *test_android
+ 
+   - name : google images
+     engine : google_images
+     shortcut : goi
+-    # additional_tests:
+-    #   android: *test_android
+-    #   dali:
+-    #     matrix:
+-    #       query: ['Dali Christ']
+-    #       lang: ['en', 'de', 'fr', 'zh-CN']
+-    #     result_container:
+-    #       - ['one_title_contains', 'Salvador']
+ 
+   - name : google news
+     engine : google_news
+     shortcut : gon
+-    # additional_tests:
+-    #   android: *test_android
+ 
+   - name : google videos
+     engine : google_videos
+     shortcut : gov
+-    # additional_tests:
+-    #   android: *test_android
+ 
+   - name : google scholar
+     engine : google_scholar
+@@ -587,7 +572,6 @@
+     title_xpath : //article[contains(@class, "post")]//a[@class="post__title_link"]
+     content_xpath : //article[contains(@class, "post")]//div[contains(@class, "post__text")]
+     categories : it
+-    timeout : 4.0
+     disabled : True
+     shortcut : gt
+     about:
+@@ -606,7 +590,6 @@
+     title_xpath : //article[contains(@class, "post")]//a[@class="post__title_link"]
+     content_xpath : //article[contains(@class, "post")]//div[contains(@class, "post__text")]
+     categories : it
+-    timeout : 4.0
+     disabled : True
+     shortcut : habr
+     about:
+@@ -628,6 +611,7 @@
+     page_size : 20
+     categories : it
+     shortcut : ho
++    disabled : True
+     about:
+       website: https://www.haskell.org/
+       wikidata_id: Q34010
+@@ -648,13 +632,11 @@
+       - https://invidious.tube/
+       - https://invidious.snopyta.org/
+     shortcut: iv
+-    timeout : 5.0
+     disabled : True
+ 
+   - name: kickass
+     engine : kickass
+     shortcut : kc
+-    timeout : 4.0
+     disabled : True
+ 
+   - name : library genesis
+@@ -690,7 +672,6 @@
+     content_xpath : .//a[@class="domain"]
+     categories : it
+     shortcut : lo
+-    timeout : 3.0
+     disabled: True
+     about:
+       website: https://lobste.rs/
+@@ -704,10 +685,12 @@
+     engine : microsoft_academic
+     categories : science
+     shortcut : ma
++    disabled : True
+ 
+   - name : mixcloud
+     engine : mixcloud
+     shortcut : mc
++    disabled : True
+ 
+   - name : npm
+     engine : json_engine
+@@ -720,7 +703,6 @@
+     page_size : 25
+     categories : it
+     disabled: True
+-    timeout: 5.0
+     shortcut : npm
+     about:
+       website: https://npms.io/
+@@ -736,6 +718,7 @@
+     categories : onions
+     enable_http : True
+     shortcut : ne
++    disabled : True
+ 
+   - name : nyaa
+     engine : nyaa
+@@ -753,7 +736,6 @@
+     content_html_to_text: True
+     categories : science
+     shortcut : oad
+-    timeout: 5.0
+     about:
+       website: https://www.openaire.eu/
+       wikidata_id: Q25106053
+@@ -773,7 +755,6 @@
+     content_html_to_text: True
+     categories : science
+     shortcut : oap
+-    timeout: 5.0
+     about:
+       website: https://www.openaire.eu/
+       wikidata_id: Q25106053
+@@ -799,7 +780,6 @@
+     title_xpath : //li[@class="search-result"]//h3[@class="title"]/a
+     content_xpath : //li[@class="search-result"]//div[@class="search-snippet-info"]//p[@class="search-snippet"]
+     categories : files
+-    timeout : 4.0
+     disabled : True
+     shortcut : or
+     about:
+@@ -826,31 +806,31 @@
+     shortcut : tpb
+     # You may need to change this URL to a proxy if piratebay is blocked in your country
+     url: https://thepiratebay.org/
+-    timeout : 3.0
++    disabled : True
+ 
+   - name : pubmed
+     engine : pubmed
+     shortcut : pub
+     categories: science
+-    timeout : 3.0
++    timeout : 7.0
+ 
+   - name : qwant
+     engine : qwant
+     shortcut : qw
+     categories : general
+-    disabled : True
+-    additional_tests:
+-      rosebud: *test_rosebud
++    timeout : 7.0
+ 
+   - name : qwant images
+     engine : qwant
+     shortcut : qwi
+     categories : images
++    timeout : 7.0
+ 
+   - name : qwant news
+     engine : qwant
+     shortcut : qwn
+     categories : news
++    timeout : 7.0
+ 
+ #  - name: library
+ #    engine: recoll
+@@ -894,10 +874,12 @@
+   - name : soundcloud
+     engine : soundcloud
+     shortcut : sc
++    disabled : True
+ 
+   - name : stackoverflow
+     engine : stackoverflow
+     shortcut : st
++    disabled : True
+ 
+   - name : searchcode code
+     engine : searchcode_code
+@@ -958,8 +940,6 @@
+     shortcut : sp
+     timeout : 6.0
+     disabled : True
+-    additional_tests:
+-      rosebud: *test_rosebud
+ 
+   - name : tokyotoshokan
+     engine : tokyotoshokan
+@@ -970,14 +950,13 @@
+   - name : solidtorrents
+     engine : solidtorrents
+     shortcut : solid
+-    timeout : 3.0
+     disabled : True
+ 
+   - name : torrentz
+     engine : torrentz
+     shortcut : tor
+     url: https://torrentz2.eu/
+-    timeout : 3.0
++    disabled : True
+ 
+ # Requires Tor
+   - name : torch
+@@ -991,6 +970,7 @@
+     categories : onions
+     enable_http : True
+     shortcut : tch
++    disabled : True
+ 
+ # maybe in a fun category
+ #  - name : uncyclopedia
+@@ -1016,7 +996,6 @@
+   - name : yahoo
+     engine : yahoo
+     shortcut : yh
+-    disabled : True
+ 
+   - name : yahoo news
+     engine : yahoo_news
+@@ -1031,16 +1010,16 @@
+     # Or you can use the html non-stable engine, activated by default
+     engine : youtube_noapi
+ 
+-  - name : yggtorrent
+-    engine : yggtorrent
+-    shortcut : ygg
+-    url: https://www4.yggtorrent.li/
+-    disabled : True
+-    timeout : 4.0
++#  - name : yggtorrent
++#    engine : yggtorrent
++#    shortcut : ygg
++#    url: https://www4.yggtorrent.li/
++#    disabled : True
+ 
+   - name : dailymotion
+     engine : dailymotion
+     shortcut : dm
++    disabled : True
+ 
+   - name : vimeo
+     engine : vimeo
+@@ -1088,8 +1067,6 @@
+     number_of_results : 5
+     search_type : text
+     disabled : True
+-    additional_tests:
+-      rosebud: *test_rosebud
+     about:
+       website: https://www.wikiquote.org/
+       wikidata_id: Q369
+@@ -1155,11 +1132,11 @@
+   - name : dictzone
+     engine : dictzone
+     shortcut : dc
++    disabled : True
+ 
+   - name : mymemory translated
+     engine : translated
+     shortcut : tl
+-    timeout : 5.0
+     disabled : True
+     # You can use without an API key, but you are limited to 1000 words/day
+     # See : http://mymemory.translated.net/doc/usagelimits.php
+@@ -1258,7 +1235,6 @@
+ #    shortcut : ya
+ #    base_url : 'http://localhost:8090'
+ #    number_of_results : 5
+-#    timeout : 3.0
+ 
+   - name : rumble
+     engine : rumble

@@ -1,0 +1,25 @@
+#!/bin/sh
+
+echo "Please enter the administrator password:"
+/usr/bin/sudo /usr/sbin/chown root:wheel /Library/LaunchDaemons/searx.plist
+if [ "$?" == "0" ]; then
+   SEARX_IS_RUNNING=`/usr/bin/sudo launchctl list | /usr/bin/grep SearX`
+   if [ "$SEARX_IS_RUNNING" == "" ]; then
+      /usr/bin/sudo launchctl load /Library/LaunchDaemons/searx.plist
+      if [ "$?" == "0" ]; then
+         echo
+         echo "      SearX is ready in 10 s."
+      else
+         echo
+         echo "      Failed to launch SearX."
+      fi
+   else
+      echo
+      echo "      SearX is ready."
+   fi
+else
+   echo
+   echo "      Authorization for '/Library/LaunchDaemons/searx.plist' failed."
+fi
+
+sleep 10
