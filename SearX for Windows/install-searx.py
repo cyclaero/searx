@@ -30,8 +30,15 @@ outfile.close()
 os.remove('searx\\webutils.py')
 os.rename('searx\\webutils.tmp', 'searx\\webutils.py')
 
+import binascii
 os.remove('searx\\settings.yml')
-os.rename('..\\searx-settings.yml', 'searx\\settings.yml')
+infile  = open('..\\searx-settings.yml')
+outfile = open('searx\\settings.yml', 'w')
+for line in infile:
+   outfile.write(line.replace('ultrasecretkey', binascii.b2a_hex(os.urandom(32)).decode()))
+infile.close()
+outfile.close()
+os.remove('..\\searx-settings.yml')
 
 subprocess.check_call([sys.executable, 'setup.py', 'install'])
 

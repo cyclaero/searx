@@ -37,15 +37,15 @@ if [ "$?" == "0" ]; then
             /usr/bin/sudo /bin/mv searx-settings.yml /usr/local/etc/searx-settings.yml
             if [ "$?" == "0" ]; then
          
-               /usr/bin/sudo /usr/bin/sed -e "s|ultrasecretkey|`/usr/bin/openssl rand -base64 32`|" -i "" /usr/local/etc/searx-settings.yml
+               /usr/bin/sudo /usr/bin/sed -e "s|ultrasecretkey|`/usr/bin/openssl rand -hex 32`|" -i "" /usr/local/etc/searx-settings.yml
                /usr/bin/grep ultrasecretkey /usr/local/etc/searx-settings.yml
                if [ "$?" == "1" ]; then
    
                   cd searx-master
                   /usr/bin/sed -Ee "s|/{1,2}\**# sourceMappingURL=.*.map.*||" -i "" searx/static/themes/*/*/*.min.*
    
-                  /usr/bin/sudo /bin/rm -rf "PYTHON_LIBS/searx-*.egg"
-                  /usr/bin/sudo /bin/rm  -f "PYTHON_LIBS/searx"
+                  /usr/bin/sudo /bin/rm -rf "$PYTHON_LIBS/searx-*.egg"
+                  /usr/bin/sudo /bin/rm  -f "$PYTHON_LIBS/searx"
    
                   /usr/bin/sudo -H "$PYTHON_BINS/python3" -m pip install --upgrade pip
                   if [ "$?" == "0" ]; then

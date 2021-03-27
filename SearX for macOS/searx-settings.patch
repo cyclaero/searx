@@ -1,5 +1,5 @@
---- settings.yml	2021-03-16 17:13:04.000000000 -0300
-+++ searx-settings.yml	2021-03-16 17:30:03.000000000 -0300
+--- settings.yml	2021-03-27 19:13:30.000000000 -0300
++++ searx-settings.yml	2021-03-27 19:13:03.000000000 -0300
 @@ -1,6 +1,6 @@
  general:
      debug : False # Debug mode, only for development
@@ -306,7 +306,7 @@
      content_xpath : .//a[@class="domain"]
      categories : it
      shortcut : lo
--    timeout : 3.0
+-    timeout : 5.0
      disabled: True
      about:
        website: https://lobste.rs/
@@ -413,7 +413,7 @@
  
    - name : searchcode code
      engine : searchcode_code
-@@ -958,8 +940,6 @@
+@@ -953,8 +935,6 @@
      shortcut : sp
      timeout : 6.0
      disabled : True
@@ -422,7 +422,7 @@
  
    - name : tokyotoshokan
      engine : tokyotoshokan
-@@ -970,14 +950,13 @@
+@@ -965,14 +945,13 @@
    - name : solidtorrents
      engine : solidtorrents
      shortcut : solid
@@ -438,7 +438,7 @@
  
  # Requires Tor
    - name : torch
-@@ -991,6 +970,7 @@
+@@ -986,6 +965,7 @@
      categories : onions
      enable_http : True
      shortcut : tch
@@ -446,7 +446,7 @@
  
  # maybe in a fun category
  #  - name : uncyclopedia
-@@ -1016,7 +996,6 @@
+@@ -1011,7 +991,6 @@
    - name : yahoo
      engine : yahoo
      shortcut : yh
@@ -454,7 +454,7 @@
  
    - name : yahoo news
      engine : yahoo_news
-@@ -1031,16 +1010,16 @@
+@@ -1026,16 +1005,16 @@
      # Or you can use the html non-stable engine, activated by default
      engine : youtube_noapi
  
@@ -477,7 +477,7 @@
  
    - name : vimeo
      engine : vimeo
-@@ -1088,8 +1067,6 @@
+@@ -1083,8 +1062,6 @@
      number_of_results : 5
      search_type : text
      disabled : True
@@ -486,7 +486,7 @@
      about:
        website: https://www.wikiquote.org/
        wikidata_id: Q369
-@@ -1155,11 +1132,11 @@
+@@ -1150,11 +1127,11 @@
    - name : dictzone
      engine : dictzone
      shortcut : dc
@@ -499,9 +499,9 @@
      disabled : True
      # You can use without an API key, but you are limited to 1000 words/day
      # See : http://mymemory.translated.net/doc/usagelimits.php
-@@ -1258,7 +1235,6 @@
- #    shortcut : ya
+@@ -1254,7 +1231,6 @@
  #    base_url : 'http://localhost:8090'
+ #    enable_http: True # required if you aren't using HTTPS for your local yacy instance
  #    number_of_results : 5
 -#    timeout : 3.0
  
