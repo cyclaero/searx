@@ -656,8 +656,8 @@
 		7E47AA6925FE97D8001D272B /* webapp.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = webapp.py; sourceTree = "<group>"; };
 		7E47AA6A25FE97D8001D272B /* webutils.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = webutils.py; sourceTree = "<group>"; };
 		7E47AA6B25FE9878001D272B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		7E51ACC9260825F80073F382 /* create-searx-service.bat */ = {isa = PBXFileReference; lastKnownFileType = text; path = "create-searx-service.bat"; sourceTree = "<group>"; };
-		7E51ACCA260825F80073F382 /* install-searx.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = "install-searx.py"; sourceTree = "<group>"; };
+		7E51ACC9260825F80073F382 /* create-searx-service.bat */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 2; path = "create-searx-service.bat"; sourceTree = "<group>"; };
+		7E51ACCA260825F80073F382 /* install-searx.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; lineEnding = 2; path = "install-searx.py"; sourceTree = "<group>"; };
 		7E51ACCB260825F80073F382 /* searx-settings.patch */ = {isa = PBXFileReference; lastKnownFileType = text; path = "searx-settings.patch"; sourceTree = "<group>"; };
 		7E739DCC2608255F00D673F2 /* install searx */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "install searx"; sourceTree = "<group>"; };
 		7E739DCD2608255F00D673F2 /* searx-settings.patch */ = {isa = PBXFileReference; lastKnownFileType = text; path = "searx-settings.patch"; sourceTree = "<group>"; };

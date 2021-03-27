@@ -21,8 +21,8 @@ shutil.copy('searx-master\\searx\\settings.yml', 'searx-settings.yml')
 subprocess.check_call([sys.executable, '-m', 'patch', 'searx-settings.patch'])
 
 os.chdir('searx-master')
-infile  = open('searx\\webutils.py')
-outfile = open('searx\\webutils.tmp', 'w')
+infile  = open('searx\\webutils.py', 'r', encoding='utf8')
+outfile = open('searx\\webutils.tmp', 'w', encoding='utf8')
 for line in infile:
    outfile.write(line.replace('static_files.add(f)', 'static_files.add(f.replace("\\\\", "/"))').replace('result_templates.add(f)', 'result_templates.add(f.replace("\\\\", "/"))'))
 infile.close()
@@ -31,11 +31,12 @@ os.remove('searx\\webutils.py')
 os.rename('searx\\webutils.tmp', 'searx\\webutils.py')
 
 import binascii
+secretkey = binascii.b2a_hex(os.urandom(32)).decode()
 os.remove('searx\\settings.yml')
-infile  = open('..\\searx-settings.yml')
-outfile = open('searx\\settings.yml', 'w')
+infile  = open('..\\searx-settings.yml', 'r', encoding='utf8')
+outfile = open('searx\\settings.yml', 'w', encoding='utf8')
 for line in infile:
-   outfile.write(line.replace('ultrasecretkey', binascii.b2a_hex(os.urandom(32)).decode()))
+   outfile.write(line.replace('ultrasecretkey', secretkey))
 infile.close()
 outfile.close()
 os.remove('..\\searx-settings.yml')
