@@ -24,93 +24,70 @@ if [ "$?" == "0" ]; then
    /usr/bin/unzip searx-master.zip
    if [ -d searx-master ]; then
    
-      if [ -e searx-settings.patch ]; then
-      
-         /bin/cp searx-master/searx/settings.yml searx-settings.yml
-         /usr/bin/patch searx-settings.yml < searx-settings.patch
-         if [ "$?" == "0" ]; then
-   
-            echo "Please enter the administrator password:"
-            if [ ! -d /usr/local/etc ]; then
-               /usr/bin/sudo /bin/mkdir -p /usr/local/etc
-            fi
-            /usr/bin/sudo /bin/mv searx-settings.yml /usr/local/etc/searx-settings.yml
+      echo "Please enter the administrator password:"
+      if [ ! -d /usr/local/etc ]; then
+         /usr/bin/sudo /bin/mkdir -p /usr/local/etc
+      fi
+      /usr/bin/sudo /bin/cp -p searx-settings.yml /usr/local/etc/searx-settings.yml
+      if [ "$?" == "0" ]; then
+
+         /usr/bin/sudo /usr/bin/sed -e "s|ultrasecretkey|`/usr/bin/openssl rand -hex 32`|" -i "" /usr/local/etc/searx-settings.yml
+         /usr/bin/grep -q ultrasecretkey /usr/local/etc/searx-settings.yml
+         if [ "$?" == "1" ]; then
+
+            cd searx-master
+            /usr/bin/sed -Ee "s|/{1,2}\**# sourceMappingURL=.*.map.*||" -i "" searx/static/themes/*/*/*.min.*
+
+            /usr/bin/sudo /bin/rm -rf "$PYTHON_LIBS/searx-*.egg"
+            /usr/bin/sudo /bin/rm  -f "$PYTHON_LIBS/searx"
+
+            /usr/bin/sudo -H "$PYTHON_BINS/python3" -m pip install --upgrade pip
             if [ "$?" == "0" ]; then
-         
-               /usr/bin/sudo /usr/bin/sed -e "s|ultrasecretkey|`/usr/bin/openssl rand -hex 32`|" -i "" /usr/local/etc/searx-settings.yml
-               /usr/bin/grep ultrasecretkey /usr/local/etc/searx-settings.yml
-               if [ "$?" == "1" ]; then
-   
-                  cd searx-master
-                  /usr/bin/sed -Ee "s|/{1,2}\**# sourceMappingURL=.*.map.*||" -i "" searx/static/themes/*/*/*.min.*
-   
-                  /usr/bin/sudo /bin/rm -rf "$PYTHON_LIBS/searx-*.egg"
-                  /usr/bin/sudo /bin/rm  -f "$PYTHON_LIBS/searx"
-   
-                  /usr/bin/sudo -H "$PYTHON_BINS/python3" -m pip install --upgrade pip
-                  if [ "$?" == "0" ]; then
-   
-                     /usr/bin/sudo -H "$PYTHON_BINS/pip3" install pyyaml
+
+               /usr/bin/sudo -H "$PYTHON_BINS/pip3" install pyyaml
+               if [ "$?" == "0" ]; then
+
+                  /usr/bin/sudo -H "$PYTHON_BINS/python3" setup.py install
+
+                  SEARX_VERS=`/usr/bin/sed -n '/^Version: /{s///;p;}' searx.egg-info/PKG-INFO`
+                  if [ "$?" == "0" ] && [ "$SEARX_VERS" != "" ]; then
+
+                     /usr/bin/sudo /bin/ln -s searx-$SEARX_VERS-py$PYTHON_VERS.egg/searx "$PYTHON_LIBS/searx"
                      if [ "$?" == "0" ]; then
-   
-                        /usr/bin/sudo -H "$PYTHON_BINS/python3" setup.py install
-   
-                        SEARX_VERS=`/usr/bin/sed -n '/^Version: /{s///;p;}' searx.egg-info/PKG-INFO`
-                        if [ "$?" == "0" ] && [ "$SEARX_VERS" != "" ]; then
-   
-                           RC="1"
-                           /usr/bin/sudo /bin/ln -s searx-$SEARX_VERS-py$PYTHON_VERS.egg/searx "$PYTHON_LIBS/searx"
-                           if [ "$?" == "0" ]; then
-                              /usr/bin/sudo /bin/mv "$PYTHON_LIBS/searx/settings.yml" "$PYTHON_LIBS/searx/settings.yml-orig"
-                              if [ "$?" == "0" ]; then
-                                 /usr/bin/sudo /bin/ln -s /usr/local/etc/searx-settings.yml "$PYTHON_LIBS/searx/settings.yml"
-                                 if [ "$?" == "0" ]; then
-                                    cd ..
-                                    /usr/bin/sed -e "s|PYTHON3_PATH|$PYTHON_BINS/python3|;s|SEARX_WEBAPP_PATH|$PYTHON_LIBS/searx/webapp.py|" searx.in > searx.plist
-                                    /usr/bin/sudo /usr/sbin/chown root:wheel searx.plist
-                                    /usr/bin/sudo /bin/mv searx.plist /Library/LaunchDaemons/
-                                    RC="$?"
-                                 fi
-                              fi
-                           fi
-   
-                           if [ $RC == "0" ]; then
-                              echo
-                              echo "                SearX has been successfully installed."
-                              echo
-                              echo "          For a one-time start, you may open the script 'start searx'."
-                              echo "      Anyway, SearX will be activated automatically on restart of the Mac."
-                           else
-                              echo
-                              echo "      SearX could not be properly configured."
-                           fi
-                        else
-                           echo
-                           echo "      Puthon 3 could not install SearX."
-                        fi
+
+                        cd ..
+                        /usr/bin/sed -e "s|PYTHON3_PATH|$PYTHON_BINS/python3|;s|SEARX_WEBAPP_PATH|$PYTHON_LIBS/searx/webapp.py|" searx.in > searx.plist
+                        /usr/bin/sudo /usr/sbin/chown root:wheel searx.plist
+                        /usr/bin/sudo /bin/mv searx.plist /Library/LaunchDaemons/
+
+                        echo
+                        echo "                SearX has been successfully installed."
+                        echo
+                        echo "          For a one-time start, you may open the script 'start searx'."
+                        echo "      Anyway, SearX will be activated automatically on restart of the Mac."
                      else
                         echo
-                        echo "      Pip 3 does not work correctly."
+                        echo "      SearX could not be properly configured."
                      fi
                   else
                      echo
-                     echo "      Puthon 3 does not work correctly."
-                 fi
+                     echo "      Puthon 3 could not install SearX."
+                  fi
                else
                   echo
-                  echo "      Could not configure 'searx-settings.yml'."
+                  echo "      Pip 3 does not work correctly."
                fi
             else
                echo
-               echo "      Authorization failed."
-            fi
+               echo "      Puthon 3 does not work correctly."
+           fi
          else
             echo
-            echo "      Patching 'searx-settings.yml' failed."
+            echo "      Could not configure 'searx-settings.yml'."
          fi
       else
          echo
-         echo "      The file 'searx-settings.patch' is missing."
+         echo "      Authorization failed."
       fi
    else
       echo

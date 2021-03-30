@@ -15,5 +15,10 @@
 	<string>_www</string>
 	<key>GroupName</key>
 	<string>_www</string>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>SEARX_SETTINGS_PATH</key>
+		<string>/usr/local/etc/searx-settings.yml</string>
+	</dict>
 </dict>
 </plist>

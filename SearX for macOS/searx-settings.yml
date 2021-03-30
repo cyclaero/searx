@@ -1,0 +1,137 @@
+use_default_settings: True
+
+general:
+    instance_name : "searX" # displayed name
+
+server:
+    secret_key : "ultrasecretkey" # change this!
+    http_protocol_version : "1.1"  # 1.0 and 1.1 are supported
+
+ui:
+    results_on_new_tab: True  # Open result links in a new tab by default
+
+outgoing: # communication with search engines
+    request_timeout : 5.0 # default timeout in seconds, can be override by engine
+
+enabled_plugins:
+    - "Open Access DOI rewrite"
+    - "Hash plugin"
+    - "HTTPS rewrite"
+    - "Infinite scroll"
+    - "Self Informations"
+    - "Search on category select"
+    - "Tracker URL remover"
+
+use_default_settings:
+  engines:
+    remove:
+      - yggtorrent
+ 
+engines:
+  - name : ahmia
+    disabled : True
+
+  - name : arch linux wiki
+    disabled : True
+
+  - name : bing
+    disabled : True
+
+  - name : bing images
+    disabled : True
+
+  - name : bing news
+    disabled : True
+
+  - name : bing videos
+    disabled : True
+
+  - name : btdigg
+    disabled : True
+
+  - name : deezer
+    disabled : True
+
+  - name : deviantart
+    disabled : True
+
+  - name : ddg definitions
+    disabled : False
+
+  - name : digg
+    disabled : True
+
+  - name : duckduckgo
+    disabled : False
+
+  - name : duckduckgo images
+    disabled : False
+
+  - name : etymonline
+    disabled : False
+
+  - name : genius
+    disabled : True
+
+  - name : gentoo
+    disabled : True
+
+  - name : github
+    disabled : True
+
+  - name : hoogle
+    disabled : True
+
+  - name : microsoft academic
+    disabled : False
+
+  - name : mixcloud
+    disabled : True
+
+  - name : not evil
+    disabled : True
+
+  - name : piratebay
+    disabled : True
+
+  - name : pubmed
+    timeout : 9.0
+
+  - name : qwant
+    disabled : False
+    timeout : 7.0
+
+  - name : qwant images
+    disabled : False
+    timeout : 7.0
+
+  - name : qwant news
+    disabled : False
+    timeout : 7.0
+
+  - name : soundcloud
+    disabled : True
+
+  - name : stackoverflow
+    disabled : True
+
+  - name : semantic scholar
+    disabled : False
+
+  - name : torrentz
+    disabled : True
+
+  - name : torch
+    disabled : True
+
+  - name : yahoo
+    disabled : False
+
+  - name : yahoo news
+    disabled : False
+
+  - name : dailymotion
+    disabled : True
+
+  - name : dictzone
+    disabled : True
