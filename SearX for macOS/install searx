@@ -61,7 +61,7 @@ if [ "$?" == "0" ]; then
                         /usr/bin/sudo /bin/mv searx.plist /Library/LaunchDaemons/
 
                         echo
-                        echo "                SearX has been successfully installed."
+                        echo "                     SearX has been successfully installed."
                         echo
                         echo "          For a one-time start, you may open the script 'start searx'."
                         echo "      Anyway, SearX will be activated automatically on restart of the Mac."

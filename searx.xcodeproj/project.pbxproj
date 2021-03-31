@@ -658,12 +658,12 @@
 		7E47AA6B25FE9878001D272B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		7E51ACC9260825F80073F382 /* create-searx-service.bat */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 2; path = "create-searx-service.bat"; sourceTree = "<group>"; };
 		7E51ACCA260825F80073F382 /* install-searx.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; lineEnding = 2; path = "install-searx.py"; sourceTree = "<group>"; };
-		7E51ACCB260825F80073F382 /* searx-settings.patch */ = {isa = PBXFileReference; lastKnownFileType = text; path = "searx-settings.patch"; sourceTree = "<group>"; };
 		7E739DCC2608255F00D673F2 /* install searx */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "install searx"; sourceTree = "<group>"; };
 		7E739DCE2608255F00D673F2 /* searx.in */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = searx.in; sourceTree = "<group>"; usesTabs = 1; };
 		7E739DCF2608255F00D673F2 /* start searx */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "start searx"; sourceTree = "<group>"; };
 		7E739DD02608255F00D673F2 /* stop searx */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "stop searx"; sourceTree = "<group>"; };
 		7E79811E2613CB500070EF94 /* searx-settings.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = "searx-settings.yml"; sourceTree = "<group>"; };
+		7E79811F2613FB410070EF94 /* searx-settings.yml */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 2; path = "searx-settings.yml"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -2808,8 +2808,8 @@
 			isa = PBXGroup;
 			children = (
 				7E51ACCA260825F80073F382 /* install-searx.py */,
+				7E79811F2613FB410070EF94 /* searx-settings.yml */,
 				7E51ACC9260825F80073F382 /* create-searx-service.bat */,
-				7E51ACCB260825F80073F382 /* searx-settings.patch */,
 			);
 			path = "SearX for Windows";
 			sourceTree = "<group>";

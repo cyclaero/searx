@@ -14,11 +14,9 @@ open('searx-master.zip', 'wb').write(r.content)
 
 from zipfile import ZipFile
 with ZipFile('searx-master.zip', 'r') as zipObj:
-	zipObj.extractall()
+   zipObj.extractall()
 
 import shutil
-shutil.copy('searx-master\\searx\\settings.yml', 'searx-settings.yml')
-subprocess.check_call([sys.executable, '-m', 'patch', 'searx-settings.patch'])
 
 os.chdir('searx-master')
 infile  = open('searx\\webutils.py', 'r', encoding='utf8')
@@ -32,14 +30,14 @@ os.rename('searx\\webutils.tmp', 'searx\\webutils.py')
 
 import binascii
 secretkey = binascii.b2a_hex(os.urandom(32)).decode()
-os.remove('searx\\settings.yml')
+if os.path.exists('C:\\Users\\Public\\searx-settings.yml'):
+   os.remove('C:\\Users\\Public\\searx-settings.yml')
 infile  = open('..\\searx-settings.yml', 'r', encoding='utf8')
-outfile = open('searx\\settings.yml', 'w', encoding='utf8')
+outfile = open('C:\\Users\\Public\\searx-settings.yml', 'w', encoding='utf8')
 for line in infile:
    outfile.write(line.replace('ultrasecretkey', secretkey))
 infile.close()
 outfile.close()
-os.remove('..\\searx-settings.yml')
 
 subprocess.check_call([sys.executable, 'setup.py', 'install'])
 
