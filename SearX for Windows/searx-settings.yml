@@ -11,7 +11,7 @@ ui:
     results_on_new_tab: True  # Open result links in a new tab by default
 
 outgoing: # communication with search engines
-    request_timeout : 5.0 # default timeout in seconds, can be override by engine
+    request_timeout : 15.0 # default timeout in seconds, can be override by engine
 
 enabled_plugins:
     - "Open Access DOI rewrite"
@@ -26,7 +26,7 @@ use_default_settings:
   engines:
     remove:
       - yggtorrent
- 
+
 engines:
   - name : ahmia
     disabled : True
@@ -66,6 +66,7 @@ engines:
 
   - name : duckduckgo images
     disabled : False
+    timeout : 15.0
 
   - name : etymonline
     disabled : False
@@ -95,19 +96,22 @@ engines:
     disabled : True
 
   - name : pubmed
-    timeout : 9.0
+    timeout : 15.0
 
   - name : qwant
     disabled : False
-    timeout : 7.0
+    timeout : 15.0
 
   - name : qwant images
     disabled : False
-    timeout : 7.0
+    timeout : 15.0
 
   - name : qwant news
     disabled : False
-    timeout : 7.0
+    timeout : 15.0
+
+  - name : wikidata
+    timeout : 15.0
 
   - name : soundcloud
     disabled : True
@@ -135,3 +139,22 @@ engines:
 
   - name : dictzone
     disabled : True
+
+  - name : arxiv
+    timeout : 15.0
+
+  - name : openairedatasets
+    timeout : 15.0
+
+  - name : openairepublications
+    timeout : 15.0
+
+  - name : wolframalpha
+    timeout : 15.0
+
+  - name : springer nature
+    engine : springer
+    # get your API key from: https://dev.springernature.com/signup
+    api_key : 'b3fd12d235eada508658b26521ff630a'
+    shortcut : springer
+    categories : science

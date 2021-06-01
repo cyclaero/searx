@@ -8,7 +8,7 @@
 
 /* Begin PBXFileReference section */
 		7E47A72725FE97D6001D272B /* AUTHORS.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = AUTHORS.rst; sourceTree = "<group>"; };
-		7E47A72825FE97D6001D272B /* manage.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = manage.sh; sourceTree = "<group>"; };
+		7E47A72825FE97D6001D272B /* manage */ = {isa = PBXFileReference; lastKnownFileType = text; path = manage; sourceTree = "<group>"; };
 		7E47A72925FE97D6001D272B /* Dockerfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Dockerfile; sourceTree = "<group>"; };
 		7E47A72A25FE97D6001D272B /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		7E47A72F25FE97D6001D272B /* __init__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
@@ -126,7 +126,6 @@
 		7E47A7C025FE97D7001D272B /* index.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = index.rst; sourceTree = "<group>"; };
 		7E47A7C125FE97D7001D272B /* standalone_searx.py.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = standalone_searx.py.rst; sourceTree = "<group>"; };
 		7E47A7C425FE97D7001D272B /* searx_logo_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searx_logo_small.png; sourceTree = "<group>"; };
-		7E47A7C625FE97D7001D272B /* conf.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = conf.py; sourceTree = "<group>"; };
 		7E47A7C725FE97D7001D272B /* index.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = index.rst; sourceTree = "<group>"; };
 		7E47A7C825FE97D7001D272B /* own-instance.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = "own-instance.rst"; sourceTree = "<group>"; };
 		7E47A7C925FE97D7001D272B /* search_syntax.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = search_syntax.rst; sourceTree = "<group>"; };
@@ -311,10 +310,8 @@
 		7E47A88925FE97D7001D272B /* self_info.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = self_info.py; sourceTree = "<group>"; };
 		7E47A88A25FE97D7001D272B /* tracker_url_remover.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = tracker_url_remover.py; sourceTree = "<group>"; };
 		7E47A88B25FE97D7001D272B /* vim_hotkeys.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = vim_hotkeys.py; sourceTree = "<group>"; };
-		7E47A88C25FE97D7001D272B /* poolrequests.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = poolrequests.py; sourceTree = "<group>"; };
 		7E47A88D25FE97D7001D272B /* preferences.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = preferences.py; sourceTree = "<group>"; };
 		7E47A88E25FE97D7001D272B /* query.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = query.py; sourceTree = "<group>"; };
-		7E47A88F25FE97D7001D272B /* raise_for_httperror.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = raise_for_httperror.py; sourceTree = "<group>"; };
 		7E47A89025FE97D7001D272B /* results.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = results.py; sourceTree = "<group>"; };
 		7E47A89225FE97D7001D272B /* __init__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
 		7E47A89425FE97D7001D272B /* __init__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
@@ -664,6 +661,9 @@
 		7E739DD02608255F00D673F2 /* stop searx */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "stop searx"; sourceTree = "<group>"; };
 		7E79811E2613CB500070EF94 /* searx-settings.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = "searx-settings.yml"; sourceTree = "<group>"; };
 		7E79811F2613FB410070EF94 /* searx-settings.yml */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 2; path = "searx-settings.yml"; sourceTree = "<group>"; };
+		7EC094D02666D56200297C25 /* sql-engines.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = "sql-engines.rst"; sourceTree = "<group>"; };
+		7EC094D12666D56200297C25 /* search-indexer-engines.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = "search-indexer-engines.rst"; sourceTree = "<group>"; };
+		7EC094D22666D5CA00297C25 /* hostname_replace.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = hostname_replace.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -685,7 +685,7 @@
 				7E47A74F25FE97D6001D272B /* Makefile */,
 				7E47A78025FE97D6001D272B /* babel.cfg */,
 				7E47A78425FE97D7001D272B /* tox.ini */,
-				7E47A72825FE97D6001D272B /* manage.sh */,
+				7E47A72825FE97D6001D272B /* manage */,
 				7E47A72925FE97D6001D272B /* Dockerfile */,
 				7E47A78725FE97D7001D272B /* requirements.txt */,
 				7E47A74E25FE97D6001D272B /* requirements-dev.txt */,
@@ -1022,6 +1022,8 @@
 		7E47A7A225FE97D7001D272B /* blog */ = {
 			isa = PBXGroup;
 			children = (
+				7EC094D12666D56200297C25 /* search-indexer-engines.rst */,
+				7EC094D02666D56200297C25 /* sql-engines.rst */,
 				7E47A7A325FE97D7001D272B /* admin.rst */,
 				7E47A7A425FE97D7001D272B /* command-line-engines.rst */,
 				7E47A7A525FE97D7001D272B /* index.rst */,
@@ -1092,7 +1094,6 @@
 		7E47A7C525FE97D7001D272B /* user */ = {
 			isa = PBXGroup;
 			children = (
-				7E47A7C625FE97D7001D272B /* conf.py */,
 				7E47A7C725FE97D7001D272B /* index.rst */,
 				7E47A7C825FE97D7001D272B /* own-instance.rst */,
 				7E47A7C925FE97D7001D272B /* search_syntax.rst */,
@@ -1162,10 +1163,8 @@
 				7E47A85825FE97D7001D272B /* languages.py */,
 				7E47A85925FE97D7001D272B /* metrology */,
 				7E47A85C25FE97D7001D272B /* plugins */,
-				7E47A88C25FE97D7001D272B /* poolrequests.py */,
 				7E47A88D25FE97D7001D272B /* preferences.py */,
 				7E47A88E25FE97D7001D272B /* query.py */,
-				7E47A88F25FE97D7001D272B /* raise_for_httperror.py */,
 				7E47A89025FE97D7001D272B /* results.py */,
 				7E47A89125FE97D7001D272B /* search */,
 				7E47A8A025FE97D7001D272B /* settings.yml */,
@@ -1344,6 +1343,7 @@
 				7E47A85D25FE97D7001D272B /* __init__.py */,
 				7E47A85E25FE97D7001D272B /* ahmia_filter.py */,
 				7E47A85F25FE97D7001D272B /* hash_plugin.py */,
+				7EC094D22666D5CA00297C25 /* hostname_replace.py */,
 				7E47A86025FE97D7001D272B /* https_rewrite.py */,
 				7E47A86125FE97D7001D272B /* https_rules */,
 				7E47A88625FE97D7001D272B /* infinite_scroll.py */,
