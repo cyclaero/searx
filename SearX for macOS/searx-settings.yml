@@ -34,6 +34,9 @@ engines:
   - name : arch linux wiki
     disabled : True
 
+  - name: bandcamp
+    disabled : True
+
   - name : bing
     disabled : True
 
@@ -87,9 +90,6 @@ engines:
     disabled : False
 
   - name : mixcloud
-    disabled : True
-
-  - name : not evil
     disabled : True
 
   - name : piratebay
