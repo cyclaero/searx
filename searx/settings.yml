@@ -699,6 +699,12 @@ engines:
       require_api_key: false
       results: JSON
 
+  - name : imdb
+    engine : imdb
+    shortcut : imdb
+    timeout : 6.0
+    disabled : True
+
   - name : ina
     engine : ina
     shortcut : in
@@ -737,6 +743,23 @@ engines:
       website: https://libgen.rs/
       wikidata_id: Q22017206
       official_api_documentation:
+      use_official_api: false
+      require_api_key: false
+      results: HTML
+
+  - name : azlyrics
+    shortcut : azl
+    engine : xpath
+    timeout : 4.0
+    disabled : True
+    categories : general
+    paging : True
+    search_url : https://search.azlyrics.com/search.php?q={query}&w=lyrics&p={pageno}
+    url_xpath : //td[@class="text-left visitedlyr"]/a/@href
+    title_xpath : //span/b/text()
+    content_xpath : //td[@class="text-left visitedlyr"]/a/small
+    about:
+      website: https://azlyrics.com
       use_official_api: false
       require_api_key: false
       results: HTML
@@ -1030,9 +1053,23 @@ engines:
     engine : soundcloud
     shortcut : sc
 
-  - name : stackoverflow
-    engine : stackoverflow
-    shortcut : st
+  - name: stackoverflow
+    engine: stackexchange
+    shortcut: st
+    api_site: 'stackoverflow'
+    categories: it
+
+  - name: askubuntu
+    engine: stackexchange
+    shortcut: ubuntu
+    api_site: 'askubuntu'
+    categories: it
+
+  - name: superuser
+    engine: stackexchange
+    shortcut: su
+    api_site: 'superuser'
+    categories: it
 
   - name : searchcode code
     engine : searchcode_code
@@ -1557,6 +1594,23 @@ engines:
     categories: general
     timeout: 5.0
     disabled: True
+
+  - name: brave
+    shortcut: brave
+    engine: xpath
+    paging: false
+    search_url: https://search.brave.com/search?q={query}
+    url_xpath: //div[@class="snippet fdb"]/a/@href
+    title_xpath: //span[@class="snippet-title"]
+    content_xpath: //p[1][@class="snippet-description"]
+    suggestion_xpath: //div[@class="text-gray h6"]/a
+    categories: general
+    about:
+      website: https://brave.com/search/
+      wikidata_id: Q22906900
+      use_official_api: false
+      require_api_key: false
+      results: HTML
 
 # Doku engine lets you access to any Doku wiki instance:
 # A public one or a private/corporate one.
