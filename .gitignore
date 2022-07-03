@@ -25,6 +25,8 @@ build/
 dist/
 local/
 gh-pages/
+.env
+geckodriver.log
 searx.egg-info/
 
 .DS_Store
