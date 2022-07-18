@@ -99,15 +99,15 @@ engines:
     timeout : 15.0
 
   - name : qwant
-    disabled : False
+    disabled : True
     timeout : 15.0
 
   - name : qwant images
-    disabled : False
+    disabled : True
     timeout : 15.0
 
   - name : qwant news
-    disabled : False
+    disabled : True
     timeout : 15.0
 
   - name : wikidata
