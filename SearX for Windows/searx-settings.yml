@@ -83,6 +83,9 @@ engines:
   - name : github
     disabled : True
 
+  - name : google
+    use_mobile_ui : True
+
   - name : hoogle
     disabled : True
 
