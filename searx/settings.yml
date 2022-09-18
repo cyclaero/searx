@@ -740,6 +740,13 @@ engines:
     shortcut: iv
     timeout : 5.0
     disabled : True
+  
+  - name: ipfs search
+    engine: ipfs_search
+    shortcut: ipfs
+    paging: True
+    timeout: 5.0
+    disabled: True
 
   - name: kickass
     engine : kickass
@@ -1654,7 +1661,7 @@ engines:
     paging: true
     first_page_num: 0
     search_url: https://search.brave.com/search?q={query}&offset={pageno}&spellcheck=1
-    url_xpath: //div[@class="snippet fdb"]/a/@href
+    url_xpath: //a[@class="result-header"]/@href
     title_xpath: //span[@class="snippet-title"]
     content_xpath: //p[1][@class="snippet-description"]
     suggestion_xpath: //div[@class="text-gray h6"]/a
