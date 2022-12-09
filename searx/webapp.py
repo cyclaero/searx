@@ -225,7 +225,7 @@ def code_highlighter(codelines, language=None):
         language = 'text'
 
     try:
-        # find lexer by programing language
+        # find lexer by programming language
         lexer = get_lexer_by_name(language, stripall=True)
     except:
         # if lexer is not found, using default one
@@ -647,7 +647,7 @@ def search():
             # removing html content and whitespace duplications
             result['title'] = ' '.join(html_to_text(result['title']).strip().split())
 
-        if 'url' in result:
+        if 'url' in result and 'pretty_url' not in result:
             result['pretty_url'] = prettify_url(result['url'])
 
         # TODO, check if timezone is calculated right
