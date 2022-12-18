@@ -49,6 +49,9 @@ engines:
   - name : bing videos
     disabled : True
 
+  - name : brave
+    disabled : True
+
   - name : btdigg
     disabled : True
 
