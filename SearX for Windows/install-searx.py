@@ -8,7 +8,7 @@ subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'pyyaml'])
 os.chdir(os.path.dirname(__file__))
 
 import requests
-url = 'https://codeload.github.com/searx/searx/zip/master'
+url = 'https://codeload.github.com/cyclaero/searx/zip/master'
 r = requests.get(url, allow_redirects=True)
 open('searx-master.zip', 'wb').write(r.content)
 

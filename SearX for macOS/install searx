@@ -18,7 +18,7 @@ if [ "$?" != "0" ] || [ "$PYTHON_BINS" == "" ] || [ ! -d "$PYTHON_BINS" ] || [ "
 fi
 
 cd "`/usr/bin/dirname "$0"`"
-/usr/bin/curl -o searx-master.zip -L https://github.com/searx/searx/archive/master.zip
+/usr/bin/curl -o searx-master.zip -L https://github.com/cyclaero/searx/archive/master.zip
 if [ "$?" == "0" ]; then
 
    /usr/bin/unzip searx-master.zip
