@@ -1,3 +1,11 @@
+**[ACTION REQUIRED] Your GitHub account, cyclaero, will soon require 2FA**
+
+Here is the deal: https://obsigna.com/articles/1693258424.html
+
+----
+
+
+
 .. SPDX-License-Identifier: AGPL-3.0-or-later
 
 .. figure:: https://raw.githubusercontent.com/searx/searx/master/searx/static/themes/oscar/img/logo_searx_a.png
